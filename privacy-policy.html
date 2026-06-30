@@ -285,13 +285,18 @@
     <h2><span class="section-number">3</span> AI Assistant — Third-Party Processing</h2>
     <p>ScheduleFlow includes an optional AI assistant that helps you create, edit, and query schedules using natural language. The feature is powered by <strong>DeepSeek</strong>, a third-party AI service operated by <strong>Beijing DeepSeek AI Technology Co., Ltd.</strong></p>
 
-    <p><strong>What is sent to DeepSeek:</strong></p>
+    <p><strong>When you use AI features, the following data is sent to DeepSeek:</strong></p>
     <ul>
-      <li>Your text or voice input (voice input is transcribed to text locally on your device before transmission; only the transcribed text is sent to DeepSeek)</li>
-      <li>Minimal app context required to fulfill your request (current date, your time zone)</li>
+      <li>Your natural language input (e.g., "schedule a meeting tomorrow at 3pm", "what's on my calendar next week?")</li>
+      <li>Minimal context needed to understand your request — for example, if you ask about your existing events, the relevant event details will be included so the AI can answer your question</li>
     </ul>
 
-    <p><strong>What is NOT sent to DeepSeek:</strong> Your existing schedules, tasks, categories, reminder settings, or any other personal data not directly required for the current AI request.</p>
+    <p><strong>What is NOT sent to DeepSeek:</strong></p>
+    <ul>
+      <li>Your account information (no account required)</li>
+      <li>Device identifiers or advertising IDs</li>
+      <li>Data you haven't explicitly asked the AI to process</li>
+    </ul>
 
     <div class="warn-box">
       <strong>⚠️ International Data Transfer Disclosure:</strong><br>
