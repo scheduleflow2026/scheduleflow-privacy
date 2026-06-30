@@ -1,100 +1,455 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terms of Service - Schedule Flow</title>
-<style>
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 680px; margin: 0 auto; padding: 20px; color: #1a1a2e; line-height: 1.7; }
-  h1 { color: #5B67CA; font-size: 24px; margin-bottom: 4px; }
-  .date { color: #888; font-size: 14px; margin-bottom: 28px; }
-  h2 { color: #333; font-size: 18px; margin-top: 28px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
-  p { margin: 10px 0; }
-  ul { padding-left: 20px; }
-  li { margin: 6px 0; }
-  a { color: #5B67CA; text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  .highlight { background: #f0eeff; padding: 16px; border-radius: 10px; margin: 14px 0; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — ScheduleFlow</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --surface: #f9f9fb;
+      --border: #e8e8ed;
+      --text-primary: #1c1c1e;
+      --text-secondary: #636366;
+      --text-tertiary: #8e8e93;
+      --accent: #494fbe;
+      --accent-light: rgba(73, 79, 190, 0.08);
+      --warn-bg: #fff9e6;
+      --warn-border: rgba(200, 160, 0, 0.25);
+      --warn-text: #7a6000;
+      --danger-bg: #fff0f0;
+      --danger-border: rgba(220, 50, 50, 0.2);
+      --danger-text: #8b0000;
+      --radius: 12px;
+      --max-w: 720px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .site-header {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .site-header-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .app-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .app-name {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+    .header-badge {
+      margin-left: auto;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    .hero {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 48px 20px 36px;
+    }
+    .hero h1 {
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+    .last-updated { font-size: 13px; color: var(--text-tertiary); }
+    .hero-intro {
+      margin-top: 20px;
+      font-size: 15px;
+      color: var(--text-secondary);
+    }
+
+    .content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 20px 80px;
+    }
+
+    .section {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .section:last-child { border-bottom: none; }
+
+    .section h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .section p {
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+    }
+    .section p:last-child { margin-bottom: 0; }
+
+    ul {
+      list-style: none;
+      margin-top: 8px;
+    }
+    ul li {
+      position: relative;
+      padding-left: 20px;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+    ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 5px;
+      height: 5px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .info-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    .info-box strong { color: var(--text-primary); }
+
+    .warn-box {
+      background: var(--warn-bg);
+      border: 1px solid var(--warn-border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--warn-text);
+      line-height: 1.65;
+    }
+    .warn-box strong { font-weight: 600; }
+
+    .danger-box {
+      background: var(--danger-bg);
+      border: 1px solid var(--danger-border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--danger-text);
+      line-height: 1.65;
+    }
+    .danger-box strong { font-weight: 600; }
+
+    .link {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(73,79,190,0.3);
+      transition: border-color 0.2s;
+    }
+    .link:hover { border-color: var(--accent); }
+
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 20px;
+      text-align: center;
+      color: var(--text-tertiary);
+      font-size: 13px;
+    }
+    .site-footer a { color: var(--text-secondary); text-decoration: none; }
+    .site-footer a:hover { color: var(--accent); }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 24px; }
+      .section h2 { font-size: 16px; }
+    }
+  </style>
 </head>
 <body>
 
-<h1>Terms of Service</h1>
-<p class="date">Last updated: June 21, 2026</p>
+<!-- Header -->
+<header class="site-header">
+  <div class="site-header-inner">
+    <img class="app-icon" src="assets/app_icon.png" alt="ScheduleFlow" onerror="this.style.display='none'">
+    <a class="app-name" href="#">ScheduleFlow</a>
+    <span class="header-badge">Terms of Service</span>
+  </div>
+</header>
 
-<div class highlight>
-Welcome to <strong>Schedule Flow</strong>. By using this app, you agree to these terms.
+<!-- Hero -->
+<div class="hero">
+  <h1>Terms of Service</h1>
+  <p class="last-updated">Last updated: June 29, 2026</p>
+  <p class="hero-intro">Welcome to ScheduleFlow. By downloading, installing, or using the App, you agree to be bound by these Terms of Service ("Terms"). If you do not agree with any part of these Terms, please do not download or use the App.</p>
 </div>
 
-<h2>1. Acceptance of Terms</h2>
-<p>By downloading, installing, or using Schedule Flow ("the App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree, please do not use the App.</p>
+<!-- Content -->
+<div class="content">
 
-<h2>2. Description of Service</h2>
-<p>Schedule Flow is a personal scheduling and task management application that operates primarily on your local device. Core features include:</p>
-<ul>
-<li>Calendar and schedule management (events, tasks, reminders)</li>
-<li>AI-assisted scheduling assistance (powered by DeepSeek)</li>
-<li>Categories and organization tools</li>
-<li>Local data storage via SQLite on your device</li>
-<li>Encrypted data backup and restore (AES-256-CBC)</li>
-</ul>
+  <!-- 1 -->
+  <section class="section">
+    <h2><span class="section-number">1</span> License Grant</h2>
+    <p>Subject to your full compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, revocable license to download, install, and use ScheduleFlow on iOS devices that you own or control.</p>
+    <p>The App is licensed to you, <strong>not sold</strong>. All rights not expressly granted are reserved by the developer. This license automatically terminates if you breach any provision of these Terms.</p>
+  </section>
 
-<h2>3. User Responsibilities</h2>
-<ul>
-<li>You must be at least 13 years old to use this App.</li>
-<li>You are responsible for maintaining the security of your device and access to the App.</li>
-<li>You agree not to use the App for any unlawful purpose.</li>
-<li>You are responsible for the accuracy of any data you enter into the App.</li>
-</ul>
+  <!-- 2 -->
+  <section class="section">
+    <h2><span class="section-number">2</span> Acceptable Use</h2>
+    <p>You agree to use ScheduleFlow only for lawful purposes consistent with these Terms. You agree <strong>not to</strong>:</p>
+    <ul>
+      <li>Use the App in any manner that violates any applicable federal, state, local, or international law or regulation</li>
+      <li>Attempt to reverse engineer, decompile, disassemble, or hack any part of the App</li>
+      <li>Bypass, disable, or circumvent any security or access control mechanism of the App</li>
+      <li>Use the App to harass, abuse, threaten, impersonate, or harm any person</li>
+      <li>Upload or transmit any viruses, malware, or malicious code</li>
+      <li>Use the AI assistant to generate content that is illegal, defamatory, obscene, hateful, or harmful to others</li>
+      <li>Use the App in any way that interferes with or disrupts the App or its underlying infrastructure</li>
+      <li>Resell, redistribute, sublicense, or commercially exploit the App without prior written consent</li>
+    </ul>
+  </section>
 
-<h2>4. AI Features</h2>
-<p>The App includes AI-powered features powered by DeepSeek's language models:</p>
-<ul>
-<li><strong>Free Tier:</strong> Unlimited AI queries; up to 10 AI-assisted edits (create/modify/delete) per day.</li>
-<li><strong>Premium Tier:</strong> Unlimited AI queries and edits (available via in-app purchase).</li>
-<li>AI-generated suggestions are provided for convenience and should be reviewed before acceptance.</li>
-<li>We do not store your AI conversations on external servers beyond what is required by the AI provider for service delivery.</li>
-</ul>
+  <!-- 3 -->
+  <section class="section">
+    <h2><span class="section-number">3</span> Account &amp; Data Ownership</h2>
+    <p>ScheduleFlow does <strong>not require an account or registration</strong>. All your data — including schedules, tasks, categories, reminders, and preferences — is stored locally on your device.</p>
+    <p>You own all data you create within the App. We claim no ownership rights over your user-generated content.</p>
+    <p>You are solely responsible for maintaining backups of your data using the encrypted backup feature (Settings &rarr; Backup). We cannot recover lost data if you delete the app without a backup.</p>
+    <div class="info-box">
+      <strong>Local storage:</strong> Because data is stored only on your device, we do not have the ability to access, export, or delete your data on your behalf. Please use the backup feature to preserve your data.
+    </div>
+  </section>
 
-<h2>5. Data & Privacy</h2>
-<ul>
-<li>All your schedule and task data is stored locally on your device (SQLite database).</li>
-<li>The App does not require account registration or transmit personal data to our servers for core features.</li>
-<li>AI feature requests are sent to DeepSeek's API for processing. See our <a href="privacy-policy.html">Privacy Policy</a> for details.</li>
-<li>We do not sell your personal data to third parties.</li>
-<li><strong>Backup & Restore:</strong> You may export your data as an AES-256-CBC encrypted <code>.sfbackup</code> file. You are solely responsible for remembering your backup password — we cannot recover it if lost. Importing a backup may overwrite existing data; you will be prompted to choose "overwrite" or "merge" before any changes are made.</li>
-</ul>
+  <!-- 4 -->
+  <section class="section">
+    <h2><span class="section-number">4</span> AI Assistant</h2>
+    <p>The AI assistant helps you create and manage schedules using natural language. It is powered by <strong>DeepSeek</strong> (<a class="link" href="https://www.deepseek.com" target="_blank" rel="noopener">www.deepseek.com</a>), a third-party service operated by Beijing DeepSeek AI Technology Co., Ltd.</p>
 
-<h2>6. Intellectual Property</h2>
-<ul>
-<li>The App, its source code, design, and branding are owned by Schedule Flow.</li>
-<li>You retain ownership of all data you create within the App.</li>
-<li>You may not reverse-engineer, modify, or distribute the App without permission.</li>
-</ul>
+    <p>By using the AI assistant, you acknowledge and agree that:</p>
+    <ul>
+      <li>Your text or voice input will be transmitted to DeepSeek's servers for processing</li>
+      <li>DeepSeek's handling of your data is governed by DeepSeek's own privacy policy and terms of service</li>
+      <li>AI-generated responses are provided "as is" and may contain inaccuracies, omissions, or errors</li>
+      <li>You should carefully review and confirm all AI-generated schedules before accepting them</li>
+    </ul>
 
-<h2>7. Disclaimers</h2>
-<ul>
-<li>The App is provided "as is" and "as available" without warranties of any kind.</li>
-<li>We do not guarantee that the App will be uninterrupted, error-free, or free of viruses.</li>
-<li>We are not liable for any loss of data resulting from use of the App. Please back up your data regularly.</li>
-<li>AI-generated content may occasionally contain inaccuracies. Always verify important scheduling information.</li>
-</ul>
+    <div class="danger-box">
+      <strong>⚠️ AI-generated content disclaimer:</strong><br>
+      The AI assistant is designed for <strong>scheduling assistance only</strong>. It is <strong>not</strong> a substitute for professional advice. Specifically:<br>
+      &mdash; AI-generated schedule suggestions are not a substitute for <strong>medical, health, or mental health</strong> advice. Consult a qualified healthcare provider before making health-related decisions.<br>
+      &mdash; AI-generated schedule suggestions are not a substitute for <strong>legal or financial</strong> advice. Consult a qualified attorney or financial advisor for legal or financial matters.<br>
+      &mdash; AI outputs may be incomplete, incorrect, or contextually inappropriate. You are responsible for verifying all AI-generated content before relying on it.
+    </div>
 
-<h2>8. Limitation of Liability</h2>
-<p>To the fullest extent permitted by law, Schedule Flow and its developers shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the App.</p>
+    <div class="info-box">
+      <strong>Free usage limit:</strong> AI features are limited to 10 create/modify/delete operations per day for free users. Query operations (e.g., asking about existing schedules) are not counted toward this limit. The count resets at midnight in your device's local time zone. When a subscription service is launched, separate membership terms will apply.
+    </div>
 
-<h2>9. Changes to Terms</h2>
-<p>We may update these Terms from time to time. Continued use of the App after changes constitutes acceptance of the revised Terms. We will notify users of material changes through in-app notifications when feasible.</p>
+    <p>We are not responsible for the accuracy, completeness, reliability, or appropriateness of any AI-generated content, or for any decisions made based on such content.</p>
+  </section>
 
-<h2>10. Termination</h2>
-<p>You may stop using the App at any time. We reserve the right to restrict or terminate access for violations of these Terms.</p>
+  <!-- 5 -->
+  <section class="section">
+    <h2><span class="section-number">5</span> Third-Party Services</h2>
+    <p>ScheduleFlow integrates with third-party services. Your use of these services is subject to the respective provider's terms and privacy policies:</p>
+    <ul>
+      <li><strong>DeepSeek</strong> — AI processing. <a class="link" href="https://www.deepseek.com/privacy" target="_blank" rel="noopener">Privacy Policy</a></li>
+      <li><strong>Apple Inc.</strong> — App Store distribution, push notification delivery, and (if applicable) in-app purchase processing. <a class="link" href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple Privacy Policy</a></li>
+    </ul>
+    <p>We are not responsible for the practices, content, privacy policies, or security of any third-party service. You use third-party services at your own risk. We encourage you to review the relevant policies before using any integrated service.</p>
+  </section>
 
-<h2>11. Contact</h2>
-<p>For questions about these Terms, contact us at:<br>
-📧 Email: <a href="mailto:mel91229@163.com">mel91229@163.com</a></p>
+  <!-- 6 -->
+  <section class="section">
+    <h2><span class="section-number">6</span> Intellectual Property</h2>
+    <p>ScheduleFlow — including but not limited to its design, interface, features, code, graphics, icons, logos, trademarks, and all content within the App — is owned by the developer and protected by applicable intellectual property laws worldwide.</p>
+    <p>You may not copy, modify, adapt, translate, reverse engineer, decompile, disassemble, or create derivative works from the App without prior written permission. You may not remove, alter, or obscure any proprietary notices.</p>
+    <p>All trademarks, service marks, and trade names are the property of their respective owners.</p>
+  </section>
 
-<hr style="margin-top:32px;border:none;border-top:1px solid #eee;">
-<p style="color:#999;font-size:13px;">© 2026 Schedule Flow. All rights reserved.</p>
+  <!-- 7 -->
+  <section class="section">
+    <h2><span class="section-number">7</span> Export Compliance</h2>
+    <div class="warn-box">
+      <strong>Export Control Notice:</strong> The App uses encryption technologies that may be subject to U.S. export control laws, including the Export Administration Regulations (EAR, 15 CFR Parts 730–774).
+      <br><br>
+      <strong>Local backup encryption:</strong> The encrypted backup feature uses AES-256-GCM, which may be subject to U.S. EAR classification. Export compliance obligations for this feature are the developer's responsibility.
+      <br><br>
+      <strong>AI assistant data transmission:</strong> AI inputs are transmitted over HTTPS/TLS, which qualifies for the encryption software exception under U.S. EAR and is generally exempt from export licensing requirements.
+      <br><br>
+      You agree to comply with all applicable export control laws. You represent and warrant that you are not (a) located in, under the control of, or a national or resident of any country to which the United States has embargoed goods or services, or (b) on any U.S. Treasury Department List of Specially Designated Nationals or U.S. Commerce Department Denied Persons or Entity List.
+      <br><br>
+      This export compliance statement is provided for transparency; it does not constitute legal advice. If you have questions about export controls, please consult a qualified export compliance attorney.
+    </div>
+  </section>
+
+  <!-- 8 -->
+  <section class="section">
+    <h2><span class="section-number">8</span> Disclaimer of Warranties</h2>
+    <div class="danger-box">
+      <strong>THE APP IS PROVIDED "AS IS," "AS AVAILABLE," AND "WITH ALL FAULTS" WITHOUT WARRANTIES OF ANY KIND.</strong> To the fullest extent permitted by applicable law, we expressly disclaim all express and implied warranties, including but not limited to warranties of merchantability, fitness for a particular purpose, title, quiet enjoyment, accuracy, and non-infringement.
+      <br><br>
+      We do not warrant that the App will be uninterrupted, secure, error-free, or free of viruses or other harmful components, or that defects will be corrected. We do not warrant that the AI assistant will produce accurate, complete, or reliable results. You assume the entire risk of using the App.
+    </div>
+  </section>
+
+  <!-- 9 -->
+  <section class="section">
+    <h2><span class="section-number">9</span> Limitation of Liability</h2>
+    <div class="danger-box">
+      <strong>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL THE DEVELOPER BE LIABLE</strong> for any direct, indirect, incidental, special, consequential, punitive, or exemplary damages — including but not limited to damages for loss of profits, loss of data, loss of goodwill, business interruption, or any other intangible loss — arising out of or related to your use of (or inability to use) the App, any AI-generated content, any third-party service, or any act or omission of any third party, regardless of the theory of liability (contract, tort, or otherwise) and even if we have been advised of the possibility of such damages.
+      <br><br>
+      <strong>In any event, our total aggregate liability under these Terms shall not exceed:</strong>
+      <br>&mdash; <strong>If you paid</strong> for a subscription or purchase within the App: the total amount you actually paid to the developer for the App.
+      <br>&mdash; <strong>If you use the App free of charge:</strong> one hundred United States dollars (USD $100.00).
+    </div>
+  </section>
+
+  <!-- 10 -->
+  <section class="section">
+    <h2><span class="section-number">10</span> Indemnification</h2>
+    <p>You agree to defend, indemnify, and hold harmless the developer, its affiliates, and their respective officers, directors, employees, and agents from and against any and all claims, damages, losses, costs, and expenses (including reasonable attorneys' fees and court costs) arising out of or relating to:</p>
+    <ul>
+      <li>Your use of the App</li>
+      <li>Your violation of these Terms</li>
+      <li>Your violation of any applicable law or third-party right</li>
+      <li>Any AI-generated content you create using the App, or any decisions made or actions taken based on such content</li>
+    </ul>
+    <p>We reserve the right, at your expense, to assume the exclusive defense and control of any matter otherwise subject to indemnification by you. You agree to cooperate with our defense of such claims.</p>
+  </section>
+
+  <!-- 11 -->
+  <section class="section">
+    <h2><span class="section-number">11</span> Termination</h2>
+    <p>These Terms remain in effect until terminated by you or us. You may terminate them at any time by deleting the App and removing all local copies of your data. We may terminate or suspend your license immediately, without prior notice, for any reason or no reason.</p>
+    <p>Upon termination: (a) all rights granted to you under these Terms immediately cease; (b) you must promptly delete all copies of the App; and (c) Sections 6 (IP), 8 (Disclaimer), 9 (Limitation of Liability), 10 (Indemnification), 11 (Termination), 13 (Governing Law), and 14 (Dispute Resolution) shall survive termination.</p>
+  </section>
+
+  <!-- 12 -->
+  <section class="section">
+    <h2><span class="section-number">12</span> Modifications to These Terms</h2>
+    <p>We reserve the right to modify these Terms at any time. Material changes will be communicated by posting the updated Terms in the App and on this page with a revised "Last updated" date. We may also notify you through the App.</p>
+    <p>Your continued use of the App after the revised Terms take effect constitutes your acceptance of the new Terms. If you do not agree to the revised Terms, you must stop using the App immediately.</p>
+  </section>
+
+  <!-- 13 -->
+  <section class="section">
+    <h2><span class="section-number">13</span> Governing Law &amp; Dispute Resolution</h2>
+    <p>These Terms shall be governed by and construed in accordance with the laws of the <strong>People's Republic of China</strong>, without regard to its conflict of law provisions.</p>
+
+    <div class="warn-box">
+      <strong>Note for international users:</strong> If you are accessing the App from the United States, you should be aware that some U.S. states and countries may require that certain consumer protection terms be governed by local law. Nothing in these Terms limits any mandatory rights you may have under the law of your country of residence. Where applicable law provides you with greater protections than these Terms, such local law will prevail to the extent of the inconsistency.
+    </div>
+
+    <p>Any dispute arising out of or relating to these Terms or your use of the App that cannot be resolved informally shall first be attempted through good-faith negotiation. If the dispute is not resolved within 30 days of written notice, either party may pursue the remedies available under applicable law.</p>
+  </section>
+
+  <!-- 14 -->
+  <section class="section">
+    <h2><span class="section-number">14</span> DMCA &amp; Copyright</h2>
+    <p>We respect the intellectual property rights of others and expect users of the App to do the same.</p>
+    <p>If you believe that any content accessible through or generated by the App infringes your copyright, please provide our designated copyright agent with a written notice containing:</p>
+    <ul>
+      <li>Your physical or electronic signature</li>
+      <li>Identification of the copyrighted work you claim has been infringed</li>
+      <li>Identification of the infringing material and its location in the App</li>
+      <li>Your address, telephone number, and email address</li>
+      <li>A statement that you have a good-faith belief that the disputed use is not authorized</li>
+      <li>A statement, made under penalty of perjury, that the above information is accurate and that you are the copyright owner or authorized to act on the owner's behalf</li>
+    </ul>
+    <div class="info-box">
+      <strong>Copyright Agent:</strong><br>
+      Name: Ling Liu<br>
+      Email: <a class="link" href="mailto:mel91229@163.com">mel91229@163.com</a><br>
+      <br>
+      We will respond to notices of alleged copyright infringement in accordance with the U.S. Digital Millennium Copyright Act (DMCA) and applicable law.
+    </div>
+  </section>
+
+  <!-- 15 -->
+  <section class="section">
+    <h2><span class="section-number">15</span> Accessibility</h2>
+    <p>We are committed to making ScheduleFlow accessible to all users, including individuals with disabilities. The App supports iOS accessibility features (VoiceOver, Dynamic Type, Reduce Motion, etc.).</p>
+    <p>If you experience any accessibility barriers while using the App, please contact us at <a class="link" href="mailto:mel91229@163.com">mel91229@163.com</a> and we will make reasonable efforts to address the issue.</p>
+  </section>
+
+  <!-- 16 -->
+  <section class="section">
+    <h2><span class="section-number">16</span> Refund Policy</h2>
+    <p>ScheduleFlow is currently free to use. Paid features and subscriptions have not yet been introduced.</p>
+    <p>When paid features become available, all purchases will be processed through the App Store and governed by Apple's <a class="link" href="https://support.apple.com/en-us/HT204084" target="_blank" rel="noopener">App Store Refund Policy</a>. We do not process refunds directly. To request a refund, you must contact Apple Support at <a class="link" href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>.</p>
+  </section>
+
+  <!-- 17 -->
+  <section class="section">
+    <h2><span class="section-number">17</span> Contact Us</h2>
+    <p>For questions, concerns, or notices regarding these Terms, please contact us:</p>
+    <div class="info-box">
+      <strong>Developer:</strong> Ling Liu<br>
+      <strong>Email:</strong> <a class="link" href="mailto:mel91229@163.com">mel91229@163.com</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <a href="privacy-policy.html">Privacy Policy</a>
+  &nbsp;&middot;&nbsp;
+  <a href="mailto:mel91229@163.com">Contact</a>
+  <br><br>
+  &copy; 2026 ScheduleFlow. All rights reserved.
+</footer>
 
 </body>
 </html>

@@ -3,188 +3,392 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Schedule Flow - Privacy Policy</title>
+  <title>Privacy Policy — ScheduleFlow</title>
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --bg: #f5f5f7;
-      --card: #ffffff;
-      --text: #1c1c1e;
+      --bg: #ffffff;
+      --surface: #f9f9fb;
+      --border: #e8e8ed;
+      --text-primary: #1c1c1e;
       --text-secondary: #636366;
-      --brand: #5B67CA;
-      --border: rgba(0,0,0,0.08);
+      --text-tertiary: #8e8e93;
+      --accent: #494fbe;
+      --accent-light: rgba(73, 79, 190, 0.08);
+      --warn-bg: #fff9e6;
+      --warn-border: rgba(200, 160, 0, 0.25);
+      --warn-text: #7a6000;
+      --danger-bg: #fff0f0;
+      --danger-border: rgba(220, 50, 50, 0.2);
+      --danger-text: #8b0000;
+      --radius: 12px;
+      --max-w: 720px;
     }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0c0c0e;
-        --card: rgba(28,28,30,0.72);
-        --text: #f2f2f7;
-        --text-secondary: #aeaeb2;
-        --brand: #8a94e2;
-        --border: rgba(255,255,255,0.10);
-      }
-    }
-    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
       background: var(--bg);
-      color: var(--text);
+      color: var(--text-primary);
       line-height: 1.7;
-      margin: 0;
-      padding: 24px 16px;
-    }
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-      background: var(--card);
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 40px 28px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.06);
-    }
-    header { margin-bottom: 32px; }
-    h1 {
-      font-size: 28px;
-      font-weight: 700;
-      margin: 0 0 8px;
-      letter-spacing: -0.5px;
-    }
-    .subtitle {
-      color: var(--text-secondary);
       font-size: 15px;
-      margin: 0;
+      -webkit-font-smoothing: antialiased;
     }
-    h2 {
+
+    /* Header */
+    .site-header {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .site-header-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .app-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .app-name {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+    .header-badge {
+      margin-left: auto;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    /* Hero */
+    .hero {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 48px 20px 36px;
+    }
+    .hero h1 {
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+    .last-updated { font-size: 13px; color: var(--text-tertiary); }
+
+    .hero-summary {
+      margin-top: 24px;
+      background: var(--accent-light);
+      border: 1px solid rgba(73, 79, 190, 0.15);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      font-size: 14px;
+      color: #2e35a0;
+      line-height: 1.65;
+    }
+    .hero-summary strong { font-weight: 600; }
+
+    /* Content */
+    .content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 20px 80px;
+    }
+
+    .section {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .section:last-child { border-bottom: none; }
+
+    .section h2 {
       font-size: 18px;
       font-weight: 600;
-      margin: 28px 0 12px;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-    h2:first-of-type { border-top: none; padding-top: 0; }
-    p {
-      font-size: 15px;
-      margin: 0 0 14px;
-      color: var(--text);
+    .section-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 50%;
+      flex-shrink: 0;
     }
+    .section p {
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+    }
+    .section p:last-child { margin-bottom: 0; }
+
     ul {
-      margin: 0 0 14px;
-      padding-left: 22px;
+      list-style: none;
+      margin-top: 8px;
     }
-    li {
-      font-size: 15px;
-      margin-bottom: 8px;
-      color: var(--text);
+    ul li {
+      position: relative;
+      padding-left: 20px;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
     }
-    .highlight {
-      background: var(--brand);
-      color: white;
-      padding: 16px 18px;
-      border-radius: 14px;
-      font-weight: 500;
-      margin: 16px 0;
+    ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 5px;
+      height: 5px;
+      background: var(--accent);
+      border-radius: 50%;
     }
-    .footer {
-      margin-top: 32px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
-      font-size: 13px;
+
+    .info-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      margin-top: 12px;
+      font-size: 14px;
       color: var(--text-secondary);
     }
-    a {
-      color: var(--brand);
-      text-decoration: none;
-      font-weight: 500;
+    .info-box strong { color: var(--text-primary); }
+
+    .warn-box {
+      background: var(--warn-bg);
+      border: 1px solid var(--warn-border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--warn-text);
+      line-height: 1.6;
     }
-    a:hover { text-decoration: underline; }
-    @media (max-width: 640px) {
-      .container { padding: 28px 20px; border-radius: 18px; }
-      h1 { font-size: 24px; }
+    .warn-box strong { font-weight: 600; }
+
+    .danger-box {
+      background: var(--danger-bg);
+      border: 1px solid var(--danger-border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--danger-text);
+      line-height: 1.6;
+    }
+    .danger-box strong { font-weight: 600; }
+
+    .link {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(73,79,190,0.3);
+      transition: border-color 0.2s;
+    }
+    .link:hover { border-color: var(--accent); }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 20px;
+      text-align: center;
+      color: var(--text-tertiary);
+      font-size: 13px;
+    }
+    .site-footer a { color: var(--text-secondary); text-decoration: none; }
+    .site-footer a:hover { color: var(--accent); }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 24px; }
+      .section h2 { font-size: 16px; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Schedule Flow Privacy Policy</h1>
-      <p class="subtitle">Last updated: June 21, 2026</p>
-    </header>
 
-    <p class="highlight">
-      Your schedule data lives on your device. We don't run a cloud backend, and we don't require an account.
-    </p>
-
-    <h2>1. Information We Collect</h2>
-    <p>Schedule Flow is built around a local-first architecture. The app stores your events, tasks, reminders, categories, and preferences directly on your device using a local SQLite database.</p>
-
-    <h2>2. AI Assistant & Voice Input</h2>
-    <p>When you use the AI chat or voice input feature, your message is sent to our AI service provider (<strong>DeepSeek</strong>) to generate a response. The data transmitted includes your schedule-related input (e.g., event titles, task descriptions, time information you provide) so that the AI can give relevant suggestions.</p>
-    <ul>
-      <li><strong>What we send:</strong> Your free-text input and schedule context — not your full database, only what you type.</li>
-      <li><strong>What we don't do:</strong> We do not persistently store, log, or review your AI conversation content on any server we operate.</li>
-      <li><strong>Data retention by DeepSeek:</strong> DeepSeek may process and temporarily retain your input to deliver the service. We do not control DeepSeek's data practices beyond what is described in their policy. Please review their privacy policy for details:</li>
-      <ul>
-        <li><a href="https://www.deepseek.com/privacy" target="_blank" rel="noopener">DeepSeek Privacy Policy</a></li>
-      </ul>
-      <li><strong>AI-generated content:</strong> Responses generated by the AI are for informational convenience only. Schedule Flow does not guarantee the accuracy, completeness, or reliability of AI outputs. All AI suggestions must be reviewed by you before being accepted into your schedule.</li>
-      <li><strong>Prohibited uses:</strong> You agree not to use the AI feature to generate content that is unlawful, harmful, or deceptive.</li>
-    </ul>
-
-    <h2>3. Data Storage</h2>
-    <ul>
-      <li>All calendar, task, and reminder data is stored locally on your device.</li>
-      <li>We do not operate a server that stores your data.</li>
-      <li>Your data is not shared with us or third parties for analytics, advertising, or profiling.</li>
-    </ul>
-
-    <h2>4. Data Backup & Export</h2>
-    <p>Schedule Flow allows you to export your data as an encrypted backup file (<code>.sfbackup</code>) and import it on the same or another device.</p>
-    <ul>
-      <li><strong>Encryption:</strong> Backup files are encrypted using AES-256-CBC with a password you choose. We do not store or transmit your password. If you lose your password, the backup cannot be recovered.</li>
-      <li><strong>Export:</strong> When you export data, the app reads your local database, encrypts it, and shares the file through the system share sheet (e.g., AirDrop, Messages, Files). The file is only sent where you choose.</li>
-      <li><strong>Import:</strong> When importing a backup, you can choose to <strong>overwrite</strong> existing data (all current data is replaced) or <strong>merge</strong> (backup data is added; conflicting records are replaced by the backup version). You will be asked to confirm before any data is modified.</li>
-      <li><strong>Local only:</strong> Backup files are never uploaded to any server. All encryption and decryption happens on your device.</li>
-    </ul>
-
-    <h2>5. Third-Party Services</h2>
-    <p>The only third-party service currently used is the AI chat provider (DeepSeek). We do not use analytics SDKs, advertising networks, or crash reporters.</p>
-    <p>If we add new third-party services in the future, this Privacy Policy will be updated and the relevant information will be provided.</p>
-
-    <h2>6. California Privacy Rights (CCPA/CPRA)</h2>
-    <p>If you are a <strong>California resident</strong>, you have specific rights under the <em>California Consumer Privacy Act (CCPA)</em> and the <em>California Privacy Rights Act (CPRA)</em>:</p>
-    <ul>
-      <li><strong>Right to Know:</strong> You may request disclosure of what personal information we collect, use, and share about you. Given our local-first architecture, most of your personal information (schedules, tasks, reminders) never leaves your device and is not accessible to us.</li>
-      <li><strong>Right to Delete:</strong> You may request deletion of your personal information. Because your data is stored locally on your device, deleting the app also deletes your data from our reach. We do not hold copies of your schedule data on our servers.</li>
-      <li><strong>Right to Correct:</strong> You may request correction of inaccurate personal information about you.</li>
-      <li><strong>Right to Opt-Out of Sale/Sharing:</strong> We do <strong>not sell or share</strong> your personal information to third parties for advertising or profiling purposes. As such, there is nothing to opt out of.</li>
-      <li><strong>Right to Limit Use of Sensitive Personal Information:</strong> We do not collect sensitive personal information (e.g., SSN, precise location, health data) as defined under CPRA.</li>
-      <li><strong>No Discrimination:</strong> We will not discriminate against you for exercising any of your privacy rights.</li>
-    </ul>
-    <p>To exercise any of the above rights, or if you have questions, contact us at: <a href="mailto:mel91229@163.com">mel91229@163.com</a>. We will respond within the time required by applicable law.</p>
-
-    <h2>7. Children's Privacy</h2>
-    <p>Schedule Flow is not directed at children under the age of 13. We do not knowingly collect personal information from children.</p>
-
-    <h2>8. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated "Last updated" date. Continued use of the app after changes means you accept the revised policy.</p>
-
-    <h2>9. Pricing & Subscriptions</h2>
-    <p>Schedule Flow uses a freemium model:</p>
-    <ul>
-      <li><strong>Free Tier:</strong> The free version includes unlimited AI queries and up to <strong>10 AI-assisted edits per day</strong> (adding, editing, or deleting schedules and tasks). AI queries (searching and reading your schedule) are always unlimited.</li>
-      <li><strong>Premium Plans:</strong> Paid options (including one-time purchase and subscription) will be launched in the future to remove the daily edit limit and unlock additional premium features.</li>
-      <li><strong>Pricing & Availability:</strong> Specific pricing, subscription tiers, and launch date for the paid plan will be communicated through the App Store product page and in-app notices when available.</li>
-      <li><strong>In-App Purchases:</strong> All paid features, if any, will be processed through Apple's In-App Purchase system. We do not redirect users to external payment methods.</li>
-      <li><strong>Cancellation:</strong> You can manage or cancel your subscription at any time through your Apple ID account settings (Settings → Apple ID → Subscriptions). Cancellation takes effect at the end of the current billing period.</li>
-    </ul>
-
-    <h2>10. Contact Us</h2>
-    <p>If you have questions about this Privacy Policy or the data practices of Schedule Flow, please contact us at:</p>
-    <p><a href="mailto:mel91229@163.com">mel91229@163.com</a></p>
-
-    <div class="footer">
-      © 2026 Schedule Flow. All rights reserved.
-    </div>
+<!-- Header -->
+<header class="site-header">
+  <div class="site-header-inner">
+    <img class="app-icon" src="assets/app_icon.png" alt="ScheduleFlow" onerror="this.style.display='none'">
+    <a class="app-name" href="#">ScheduleFlow</a>
+    <span class="header-badge">Privacy Policy</span>
   </div>
+</header>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>Privacy Policy</h1>
+  <p class="last-updated">Last updated: June 29, 2026</p>
+  <div class="hero-summary">
+    <strong>At a glance:</strong> ScheduleFlow is a 100% local-storage app. Your schedules, tasks, and personal data never leave your device unless you explicitly use the AI assistant, which sends your input to DeepSeek for processing only. We do not collect, sell, or share your personal information with any party.
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+  <!-- 1 -->
+  <section class="section">
+    <h2><span class="section-number">1</span> Information We Do NOT Collect</h2>
+    <p>ScheduleFlow is designed to keep your data on your device. We do <strong>not</strong> collect, store, transmit, or have access to any of the following:</p>
+    <ul>
+      <li>Your name, email, phone number, or any contact information</li>
+      <li>Account credentials (no account required to use the app)</li>
+      <li>Your schedules, tasks, or calendar data (all stored locally on your device)</li>
+      <li>Precise location data (GPS) — though the app may determine your time zone from your device's system settings</li>
+      <li>Device identifiers (IDFA, advertising IDs, etc.)</li>
+      <li>Usage analytics, behavioral data, or clickstream tracking</li>
+      <li>Crash reports or diagnostic data (we do not use any third-party crash reporting service)</li>
+      <li>Photos, contacts, or any data from other apps on your device</li>
+    </ul>
+  </section>
+
+  <!-- 2 -->
+  <section class="section">
+    <h2><span class="section-number">2</span> Data Stored on Your Device</h2>
+    <p>The following information is stored <strong>only on your device</strong> (local SQLite database) and is never transmitted to us or any server:</p>
+    <ul>
+      <li>Schedules and tasks you create</li>
+      <li>Custom categories, colors, and icons</li>
+      <li>Reminders and notification settings</li>
+      <li>App preferences (language, time zone, time format)</li>
+    </ul>
+    <div class="info-box">
+      <strong>Your control:</strong> You can permanently delete all local data at any time by uninstalling the app, or by using "Clear All Data" in the Profile screen. We have no ability to recover deleted data.
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="section">
+    <h2><span class="section-number">3</span> AI Assistant — Third-Party Processing</h2>
+    <p>ScheduleFlow includes an optional AI assistant that helps you create, edit, and query schedules using natural language. The feature is powered by <strong>DeepSeek</strong>, a third-party AI service operated by <strong>Beijing DeepSeek AI Technology Co., Ltd.</strong></p>
+
+    <p><strong>What is sent to DeepSeek:</strong></p>
+    <ul>
+      <li>Your text or voice input (voice input is transcribed to text locally on your device before transmission; only the transcribed text is sent to DeepSeek)</li>
+      <li>Minimal app context required to fulfill your request (current date, your time zone)</li>
+    </ul>
+
+    <p><strong>What is NOT sent to DeepSeek:</strong> Your existing schedules, tasks, categories, reminder settings, or any other personal data not directly required for the current AI request.</p>
+
+    <div class="warn-box">
+      <strong>⚠️ International Data Transfer Disclosure:</strong><br>
+      The AI assistant is powered by <strong>DeepSeek</strong> (Beijing DeepSeek AI Technology Co., Ltd.), a company incorporated in the People's Republic of China. When you use the AI assistant, your input is transmitted to and processed on DeepSeek's servers, which may be located in China or other countries. Under applicable Chinese law, DeepSeek may be subject to legal obligations that could require disclosure of certain data to authorities. This is a characteristic of using a Chinese AI service, not a special or unusual practice. We encourage you to review <a class="link" href="https://www.deepseek.com/privacy" target="_blank" rel="noopener">DeepSeek's Privacy Policy</a> before using the AI assistant.
+    </div>
+
+    <p><strong>DeepSeek's data policy:</strong> DeepSeek states it processes your input in real-time and does not use it to train or improve its models. Data is handled in accordance with <a class="link" href="https://www.deepseek.com/privacy" target="_blank" rel="noopener">DeepSeek's Privacy Policy</a>.</p>
+
+    <div class="info-box">
+      <strong>Free usage limit:</strong> Free users are limited to 10 AI create/modify/delete operations per day (query operations are not counted). The usage count is stored <strong>locally on your device only</strong> and resets at midnight in your device's local time zone. It is not transmitted to or stored on any server. Subscribers may have this limit removed. Relevant terms will be announced when the subscription service launches.
+    </div>
+
+    <p>You can use ScheduleFlow fully offline — all core features (calendar, tasks, reminders, backups, category management) work without any internet connection and do not involve any data transmission.</p>
+  </section>
+
+  <!-- 4 -->
+  <section class="section">
+    <h2><span class="section-number">4</span> Encrypted Backup &amp; Restore</h2>
+    <p>ScheduleFlow lets you export your data as an encrypted backup file (.sfbackup). The backup is encrypted with <strong>AES-256-GCM</strong> using a key derived from a password you choose (PBKDF2).</p>
+    <p>The backup file is generated and decrypted entirely on your device. It is stored only where you choose to save it (Files app, iCloud Drive, etc.). We do not have access to your backup file, your password, or your decrypted data.</p>
+  </section>
+
+  <!-- 5 -->
+  <section class="section">
+    <h2><span class="section-number">5</span> Children's Privacy (COPPA &amp; GDPR)</h2>
+    <p>ScheduleFlow is intended for general audiences and is <strong>not directed to children under 13</strong>. Because we do not collect any personal information on our servers — your data stays entirely on your device — there is no personal information belonging to children (or anyone else) that we could inadvertently collect or retain.</p>
+    <p>The only data that leaves your device is the AI input you voluntarily submit (see Section 3). If you are a parent or guardian and believe your child has used the AI assistant to submit personal information, please contact us at <a class="link" href="mailto:mel91229@163.com">mel91229@163.com</a> and we will direct you to DeepSeek's data deletion procedures.</p>
+  </section>
+
+  <!-- 6 -->
+  <section class="section">
+    <h2><span class="section-number">6</span> Your Rights — CCPA (California)</h2>
+    <p>If you are a California resident, under the California Consumer Privacy Act (CCPA) you have the right to:</p>
+    <ul>
+      <li><strong>Know</strong> what personal information is collected about you</li>
+      <li><strong>Delete</strong> your personal information</li>
+      <li><strong>Opt out</strong> of the sale of your personal information (we do not sell data)</li>
+      <li><strong>Non-discrimination</strong> — we will not discriminate against you for exercising your rights</li>
+    </ul>
+    <p>Since we do not collect or hold any personal information on our servers, there is no data held by us to disclose, correct, or delete. All your data — schedules, tasks, categories, preferences — resides solely on your device, under your exclusive control. To delete your data, you can use the "Clear All Data" function in the Profile screen, or simply uninstall the App.</p>
+    <div class="info-box">
+      <strong>To exercise your rights:</strong> Contact us at <a class="link" href="mailto:mel91229@163.com">mel91229@163.com</a>. We will respond within 45 days.
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section class="section">
+    <h2><span class="section-number">7</span> Your Rights — GDPR (European Economic Area)</h2>
+    <p>If you are located in the European Economic Area (EEA), the General Data Protection Regulation (GDPR) applies to our processing of your personal data — specifically, the AI input data transmitted to DeepSeek (see Section 3). We do not collect or hold any personal data on our own servers.</p>
+    <p>Because we do not hold server-side data, rights relating to data we control (access, rectification, erasure, portability of server-side data) are not applicable to us. You retain the right to lodge a complaint (Art. 77) with your local supervisory authority at any time, without needing to contact us first. For data subject rights relating to AI processing by DeepSeek, please refer to <a class="link" href="https://www.deepseek.com/privacy" target="_blank" rel="noopener">DeepSeek's Privacy Policy</a>.</p>
+    <div class="warn-box">
+      <strong>Note on AI data transfers:</strong> Your AI assistant inputs are transferred to DeepSeek (a Chinese company) for processing. This constitutes an international data transfer under GDPR. The European Commission has not issued an adequacy decision for China. By using the AI assistant, you acknowledge this transfer. All other app features involve no personal data transfer outside your device.
+    </div>
+  </section>
+
+  <!-- 8 -->
+  <section class="section">
+    <h2><span class="section-number">8</span> Data Security</h2>
+    <p>We implement the following technical and organizational measures to protect your local data:</p>
+    <ul>
+      <li>All app data stored in the iOS sandbox (not accessible to other apps)</li>
+      <li>Encrypted backup files use AES-256-GCM with user-controlled passwords</li>
+      <li>No data transmitted over the network except AI assistant inputs (optional, user-initiated)</li>
+      <li>AI inputs transmitted only over HTTPS to DeepSeek's API endpoint</li>
+    </ul>
+    <p>No security measure is 100% impenetrable. We cannot guarantee the security of data stored on your device or transmitted over the internet, and you acknowledge this inherent risk.</p>
+  </section>
+
+  <!-- 9 -->
+  <section class="section">
+    <h2><span class="section-number">9</span> Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Material changes will be communicated by posting the updated policy in the app and on this page with a revised "Last updated" date.</p>
+    <p>If the changes involve how we handle AI assistant data or introduce new third-party integrations, we will provide prominent notice before the changes take effect.</p>
+    <p>Your continued use of ScheduleFlow after changes take effect constitutes your acceptance of the updated policy.</p>
+  </section>
+
+  <!-- 10 -->
+  <section class="section">
+    <h2><span class="section-number">10</span> Contact Us</h2>
+    <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your data, please contact us:</p>
+    <div class="info-box">
+      <strong>Developer / Data Controller:</strong> Ling Liu<br>
+      <strong>Email:</strong> <a class="link" href="mailto:mel91229@163.com">mel91229@163.com</a>
+    </div>
+    <p style="margin-top: 12px; font-size: 13px; color: var(--text-tertiary);">For AI-related data requests directed at DeepSeek, please refer to <a class="link" href="https://www.deepseek.com/privacy" target="_blank" rel="noopener">DeepSeek's Privacy Policy</a> for their contact procedures.</p>
+  </section>
+
+</div>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <a href="terms-of-service.html">Terms of Service</a>
+  &nbsp;&middot;&nbsp;
+  <a href="mailto:mel91229@163.com">Contact</a>
+  <br><br>
+  &copy; 2026 ScheduleFlow. All rights reserved.
+</footer>
+
 </body>
 </html>
