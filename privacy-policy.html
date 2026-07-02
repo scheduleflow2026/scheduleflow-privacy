@@ -260,7 +260,7 @@
       <li>Precise location data (GPS) — though the app may determine your time zone from your device's system settings</li>
       <li>Device identifiers (IDFA, advertising IDs, etc.)</li>
       <li>Usage analytics, behavioral data, or clickstream tracking</li>
-      <li>Crash reports or diagnostic data (we do not use any third-party crash reporting service)</li>
+      <li>Crash reports or diagnostic data — we do not integrate any third-party crash reporting SDK (e.g., Crashlytics, Sentry). Apple's built-in crash reporting may still send anonymized crash logs to Apple, subject to Apple's Privacy Policy.</li>
       <li>Photos, contacts, or any data from other apps on your device</li>
     </ul>
   </section>
@@ -306,10 +306,12 @@
       <li><strong>Opt out</strong> of the sale of your personal information (we do not sell data)</li>
       <li><strong>Non-discrimination</strong> — we will not discriminate against you for exercising your rights</li>
     </ul>
-    <p>Since we do not collect or hold any personal information on our servers, there is no data held by us to disclose, correct, or delete. All your data — schedules, tasks, categories, preferences — resides solely on your device, under your exclusive control. To delete your data, you can use the "Clear All Data" function in the Profile screen, or simply uninstall the App.</p>
+    <p>Since we do not collect or hold any personal information on our servers, there is no data held by us to disclose, correct, or delete. All your data — schedules, tasks, categories, preferences — resides solely on your device, under your exclusive control.</p>
+    <p><strong>Because we do not have remote access to your device, we cannot delete your local data on your behalf.</strong> To delete your data, use the "Clear All Data" function in the Profile screen, or uninstall ScheduleFlow.</p>
     <div class="info-box">
       <strong>To exercise your rights:</strong> Contact us at <a class="link" href="mailto:mel91229@163.com">mel91229@163.com</a>. We will confirm receipt of your request within 10 days and respond within 45 days, as required by the CCPA.
     </div>
+    <p style="margin-top: 12px; font-size: 14px; color: var(--text-secondary);"><strong>California Civil Code §1798.83:</strong> We do not disclose personal information to third parties for direct marketing purposes.</p>
   </section>
 
   <!-- 6 -->
@@ -327,8 +329,7 @@
     <ul>
       <li>All app data stored in the iOS sandbox (not accessible to other apps)</li>
       <li>Encrypted backup files use AES-256-GCM with user-controlled passwords</li>
-      <li>No data transmitted over the network</li>
-      <li>All network communication uses HTTPS when applicable</li>
+      <li>The app does not initiate any network connections for data transmission</li>
     </ul>
     <p>No security measure is 100% impenetrable. We cannot guarantee the security of data stored on your device or transmitted over the internet, and you acknowledge this inherent risk.</p>
   </section>
